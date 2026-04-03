@@ -2,11 +2,19 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Método Filho de Ouro | Acaba com Birras em 3 Dias</title>
+  <meta name="description" content="O método que já ajudou mais de 300 mães moçambicanas a acabar com birras em 3 dias. Sem gritar. Sem bater. Sem ceder. Apenas 499 MT."/>
+  <meta property="og:title" content="O teu filho faz birras? Isso acaba em 3 dias."/>
+  <meta property="og:description" content="Mais de 300 mães moçambicanas já usaram este método. Sem gritar. Sem bater. Acesso imediato por 499 MT."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="pt_MZ"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Método Filho de Ouro — Acaba com Birras em 3 Dias"/>
+  <meta name="robots" content="index, follow"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 
   <style>
     /* ═══════════════════════════════════════
@@ -111,6 +119,7 @@
       transition: background .2s;
       width: 100%; max-width: 480px;
       text-align: center;
+      touch-action: manipulation;
     }
     .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
     .hero-note {
@@ -329,6 +338,7 @@
       text-decoration: none; padding: 18px;
       border-radius: 6px; border: none; cursor: pointer;
       transition: background .2s;
+      touch-action: manipulation;
     }
     .btn-oferta:hover { background: var(--green-dark); }
     .oferta-secure {
@@ -356,6 +366,7 @@
       text-align: left; padding: 18px 0;
       display: flex; justify-content: space-between; align-items: center; gap: 14px;
       font-size: .9rem; font-weight: 600; color: rgba(255,255,255,.9); transition: color .2s;
+      cursor: pointer;
     }
     .faq-q:hover { color: #4ade80; }
     .faq-icon {
@@ -382,7 +393,7 @@
     .mobile-cta {
       display: none; position: fixed; bottom: 0; left: 0; right: 0;
       background: var(--bg); border-top: 1px solid var(--border);
-      padding: 8px 14px 10px; z-index: 998;
+      padding: 8px 14px max(10px, env(safe-area-inset-bottom)); z-index: 998;
     }
     .mobile-cta a {
       display: block; background: var(--green); color: var(--white);
@@ -390,6 +401,7 @@
       text-decoration: none; text-align: center;
       padding: 13px; border-radius: 6px;
       animation: ctaPulse 2.8s ease-in-out infinite;
+      touch-action: manipulation;
     }
 
 
@@ -428,7 +440,7 @@
       border-radius: 6px; padding: 10px 12px 10px 10px;
       max-width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,.10);
       display: flex; align-items: center; gap: 9px;
-      z-index: 990; border-left: 3px solid var(--green);
+      z-index: 995; border-left: 3px solid var(--green);
       opacity: 0; pointer-events: none;
     }
     .sp-popup.show { animation: popIn .4s ease forwards; }
@@ -915,7 +927,7 @@ Mesmo que já tenhas tentado tudo e nada resultou. Sem gritar. Sem bater. Sem pe
 
 <!-- ══════════ OFERTA ══════════ -->
 <div class="sep"><div class="sep-line"></div><div class="sep-dot-sm"></div><div class="sep-dot"></div><div class="sep-dot-sm"></div><div class="sep-line"></div></div>
-<section class="section oferta" id="oferta">
+<section class="section oferta" id="oferta" style="scroll-margin-top:40px;">
   <div class="section-inner">
     <div class="reveal text-center">
       <span class="section-label">Investe menos do que pagas num jantar</span>
@@ -1081,7 +1093,8 @@ Mesmo que já tenhas tentado tudo e nada resultou. Sem gritar. Sem bater. Sem pe
       startAuto();
     });
 
-    goTo(0); startAuto();
+    // wait for fonts/layout before first goTo
+    setTimeout(() => { goTo(0); startAuto(); }, 80);
   })();
 
   // SOCIAL PROOF POPUP
